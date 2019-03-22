@@ -1,5 +1,6 @@
 #coding: utf-8
 
+#Importing the libraries
 import nltk
 import warnings
 warnings.filterwarnings('ignore')
@@ -8,6 +9,7 @@ import numpy as np
 import random
 import string
 
+#Data Preprocessing
 f = open('chatbot.txt', 'r', errors = 'ignore')
 raw = f.read()
 sent_tokens = nltk.sent_tokenize(raw)
@@ -28,6 +30,8 @@ remove_punct_dict = dict((ord(punct), None) for punct in string.punctuation)
 def LemNormalizer(text):
     return LemTokens(nltk.word_tokenize(text.lower().translate(remove_punct_dict)))
 
+
+#Chatbot responses
 
 GREETING_INPUTS = ["hi", "hello", "greetings", "sup", "what's up", "hey", "whats up"]
 GREETING_OUTPUTS = ["hello", "hi", "hey", "*nods*", "I am glad that you are talking to me", "hi there"]
